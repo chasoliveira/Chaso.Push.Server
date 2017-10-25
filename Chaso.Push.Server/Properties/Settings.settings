@@ -1,0 +1,22 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Chaso.Push.Server.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Channels" Type="System.Collections.Specialized.StringCollection" Scope="Application">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;Movimento&lt;/string&gt;
+  &lt;string&gt;Apontamento&lt;/string&gt;
+  &lt;string&gt;QuebraDeRitmo&lt;/string&gt;
+  &lt;string&gt;Notificacao&lt;/string&gt;
+  &lt;string&gt;SourceIntegration&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="ServiceUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://localhost</Value>
+    </Setting>
+    <Setting Name="ServicePort" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">4478</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
