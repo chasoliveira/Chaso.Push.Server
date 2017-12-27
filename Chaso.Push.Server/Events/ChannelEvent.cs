@@ -3,8 +3,15 @@ using System;
 
 namespace Chaso.Push.Server.Events
 {
+    /// <summary>
+    /// Class to map event on channel
+    /// </summary>
     public class ChannelEvent
     {
+        /// <summary>
+        /// Origin of message event
+        /// </summary>
+        public string Origin { get; set; }
         private object _data;
         /// <summary>
         /// The name of the event

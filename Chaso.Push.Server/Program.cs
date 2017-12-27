@@ -78,7 +78,9 @@ namespace Chaso.Push.Server
             //
             var hubConnection = new HubConnection(baseAddress);
             IHubProxy eventHubProxy = hubConnection.CreateHubProxy(nameof(EventHub));
-            eventHubProxy.On<string, ChannelEvent>("OnEvent", (channel, ev) => Log.Info($"Event received on {channel} channel - {ev.Name}"));
+            eventHubProxy.On<string, ChannelEvent>("OnEvent", (channel, ev)
+                => Log.Info($"Event received on Channel: {channel}, Event: {ev.Name}, Origin: {ev.Origin}"));
+
             hubConnection.Start().Wait();
             Log.Info($"Server is running on {baseAddress}");
 
