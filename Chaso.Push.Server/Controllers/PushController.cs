@@ -13,6 +13,10 @@ namespace Chaso.Push.Server.Controllers
     public class PushController : ApiController
     {
         private IHubContext _context;
+        /// <summary>
+        /// Constructor of Controller to notify SugnalR
+        /// </summary>
+        /// <param name="context"></param>
         public PushController(IHubContext context)
         {
             _context = context;
@@ -39,13 +43,13 @@ namespace Chaso.Push.Server.Controllers
         [HttpPost]
         public async Task<IHttpActionResult> Notify(Notify notify)
         {
-            await PublishEvent(notify.Channel, notify.EventName, notify);
-            return Ok(string.Format($"Event {notify.EventName} on ${notify.Channel} completed!"));
+            await PublishEvent(notify.Origin, notify.Channel, notify.EventName, notify);
+            return Ok(string.Format($"Event {notify.EventName} on ${notify.Channel} from {notify.Origin} completed!"));
         }
 
-        private async Task PublishEvent(string channel, string eventName, Notify status)
+        private async Task PublishEvent(string origin, string channel, string eventName, Notify status)
         {
-            var result = await Task.Run(() => _context.Clients.Group(channel).OnEvent(channel, ChannelEvent.TaskChannel(channel, eventName, status.Data)));
+            var result = await Task.Run(() => _context.Clients.Group(channel).OnEvent(channel, ChannelEvent.TaskChannel(origin, channel, eventName, status.Data)));
         }
     }
 }

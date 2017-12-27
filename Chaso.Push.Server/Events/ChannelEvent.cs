@@ -55,6 +55,7 @@ namespace Chaso.Push.Server.Events
         {
             return new ChannelEvent
             {
+                Origin = "Chaso.Push.Server",
                 ChannelName = channel,
                 Name = $"{channel}.subscribed",
                 Data = new
@@ -69,6 +70,7 @@ namespace Chaso.Push.Server.Events
         {
             return new ChannelEvent
             {
+                Origin = "Chaso.Push.Server",
                 ChannelName = channel,
                 Name = $"{channel}.unsubscribed",
                 Data = new
@@ -82,6 +84,7 @@ namespace Chaso.Push.Server.Events
         {
             return new ChannelEvent
             {
+                Origin = "Chaso.Push.Server",
                 ChannelName = Constants.AdminChannel,
                 Name = "user.connected",
                 Data = new
@@ -94,6 +97,7 @@ namespace Chaso.Push.Server.Events
         {
             return new ChannelEvent
             {
+                Origin = "Chaso.Push.Server",
                 ChannelName = Constants.AdminChannel,
                 Name = "user.disconnected",
                 Data = new
@@ -103,10 +107,11 @@ namespace Chaso.Push.Server.Events
             };
         }
 
-        internal static ChannelEvent TaskChannel(string channel,string eventName, object data)
+        internal static ChannelEvent TaskChannel(string origin, string channel, string eventName, object data)
         {
             return new ChannelEvent
             {
+                Origin = origin,
                 ChannelName = channel,
                 Name = eventName,
                 Data = data

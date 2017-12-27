@@ -6,6 +6,10 @@
     public class Notify
     {
         /// <summary>
+        /// Origin of interation on channel
+        /// </summary>
+        public string Origin { get; set; }
+        /// <summary>
         /// Nome of the Channel to interact
         /// </summary>
         public string Channel { get; set; }
