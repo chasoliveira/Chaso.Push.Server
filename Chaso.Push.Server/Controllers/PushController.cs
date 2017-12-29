@@ -44,12 +44,12 @@ namespace Chaso.Push.Server.Controllers
         public async Task<IHttpActionResult> Notify(Notify notify)
         {
             await PublishEvent(notify.Origin, notify.Channel, notify.EventName, notify);
-            return Ok(string.Format($"Event {notify.EventName} on ${notify.Channel} from {notify.Origin} completed!"));
+            return Ok($"Event received on Channel: {notify.Channel}, Event: {notify.EventName}, Origin: {notify.Origin}, Data: {notify.Data}");
         }
 
         private async Task PublishEvent(string origin, string channel, string eventName, Notify status)
         {
-            var result = await Task.Run(() => _context.Clients.Group(channel).OnEvent(channel, ChannelEvent.TaskChannel(origin, channel, eventName, status.Data)));
+            await Task.Run(() => _context.Clients.Group(channel).OnEvent(channel, ChannelEvent.TaskChannel(origin, channel, eventName, status.Data)));
         }
     }
 }
