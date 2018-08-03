@@ -9,3 +9,5 @@ It is a Windows Service run a SignalR Service and ASP.Net Web Api, ideal to cent
 - Serilog
 - SimpleInjector
 - Swashbuckle.Core
+
+You Can use [Chaso.Push.Client](https://github.com/chasoliveira/Chaso.Push.Client) to connect to your Push Server to send and receive notifications.
